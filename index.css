@@ -1,0 +1,44 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.Top{
+    background-color: #1b2f4d;
+    height: 70px;
+}
+
+.Title{
+    font-size: 50px;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+#menu-button{
+
+}
+
+.Main{
+    height: calc(100vh - 70px);
+}
+
+.Side{
+    background-color: #214a4d;
+    color: white;
+}
+
+
+.Folder-add{
+    color: white;
+}
+.Content{
+
+}
+.Add{
+    transition: all 0.5s;
+}
+.Add:hover{
+    background-color: rgb(0,0 ,0, 0.15);
+    transition: all 0.5s;
+}
+
