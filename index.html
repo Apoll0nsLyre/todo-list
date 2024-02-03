@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="animation.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="index.js" defer></script>
+    <script type="module" src="index.js" defer></script>
     <title>Todo list</title>
 </head>
-<body class="bg-white ">
+<body class="bg-white overflow-hidden">
     <div class="flex flex-col h-full ">
         <div class="Top flex w-full justify-between m-auto items-center min-w-0">
             <div class="Menu">
@@ -41,9 +42,11 @@
                 <overlay class="overlay absolute w-screen h-screen sm:hidden sm:-z-10"></overlay>
             </div>
 
-            <div class="Content z-0 flex sm:w-3/4">
-                <div class="task-container"></div>
-                <div class="add modal-trigger flex cursor-pointer font-medium h-fit m-4 p-1.5 pr-3">
+            <div class="Content z-0 flex flex-col w-full">
+                <div class="task-container w-full">
+
+                </div>
+                <div class="add modal-trigger flex cursor-pointer font-medium h-fit w-fit m-4 p-1.5 pr-3">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6 ">
                         <path d="M10.75 4.75a.75.75 0 0 0-1.5 0v4.5h-4.5a.75.75 0 0 0 0 1.5h4.5v4.5a.75.75 0 0 0 1.5 0v-4.5h4.5a.75.75 0 0 0 0-1.5h-4.5v-4.5Z" />
                       </svg>
@@ -52,8 +55,8 @@
             </div>
             
             <div id="form-container" class="form-container fixed top-0 left-0 invisible opacity-0">
-                <overlay class="overlay-modal fixed"></overlay>
-                <div class="modal w-fit absolute pt-10 rounded-lg focus:outline-none">
+                <overlay class="overlay-modal modal-trigger fixed"></overlay>
+                <div class="modal lg:w-1/3 absolute pt-10 rounded-lg focus:outline-none w-2/3">
 
                     <h1 class="absolute top-3 font-medium text-lg">New task</h1>
                     <div class="close-modal modal-trigger absolute right-3 top-3 rounded-md cursor-pointer">
@@ -62,10 +65,10 @@
                           </svg>
                           
                     </div>
-                    <form action="" class="flex flex-col">
+                    <form action="" class="form flex flex-col">
                         <div class="flex flex-col">
                             
-                            <input type="text" name="title" id="title" placeholder="Title" class="">
+                            <input type="text" name="title" id="title" placeholder="Title" class="" required>
                             
                         </div>
                         
@@ -73,8 +76,8 @@
                                 <label for="due-date" class="font-medium">Due date</label>
                                 <input type="date" name="due-date" id="due-date" class="">
                             </div>
-                        <div class="flex justify-between">
-                            <div class="flex flex-col">
+                        <div class="bottom flex gap-5">
+                            <div class="flex flex-col ">
                                 <label class="font-medium " for="priority">Priority</label>
                                 <select class="" name="priority" id="priority" class="">
                                     <option value="low">Low</option>
@@ -85,19 +88,21 @@
                             </div>
                             <div class="flex flex-col">
                                 <label class="font-medium" for="folder">Folder</label>
-                                <select name="folder" id="folder" >
+                                <select name="folder" id="folder">
                                     <option value="inbox">Inbox</option>
                                     <option value="work">Work</option>
                                     <option value="personal">Personal</option>
                                     <option value="shopping">Shopping</option>
                                 </select>
                             </div>
+                            <input type="submit" value="+Add" class=" w-fit h-fit absolute m-auto right-0 bottom-0 cursor-pointer">
                         </div>
                         
                     </form>
+                    
                 </div>
             </div>
         </div>
     </div>
 </body>
-</html>
+</html> 

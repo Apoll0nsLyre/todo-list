@@ -55,6 +55,7 @@ body{
     height: 100%;
 }
 .modal{
+    width: 100%;
     background-color: rgb(255, 255, 255);
     padding: 20px;
     left: 50%;
@@ -70,7 +71,7 @@ body{
     background-color: rgb(0,0 ,0, 0.5);
     left: 0;
     top: 0;
-    transition: all 0.5s;
+    transition: all 0.1s;
 }
 .form-container.active{
     opacity: 1;
@@ -86,4 +87,27 @@ input, select{
 }
 input:focus, select:focus{
     outline: none;
+}
+input[type=submit]{
+    width: 20%;
+    font-weight: 500;
+    margin: 20px;
+    border: none;
+    background-color: #2b9bc9;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.task{
+    padding: 20px;
+    margin: 10px;
+    transition: all 0.5s;
+    border-bottom: 1px solid #000000;
+    border-top: 1px solid #000000;
+}
+.title{
+    max-width: 70%;
+    text-wrap: wrap;
+    word-break: break-word;
 }
