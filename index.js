@@ -1,4 +1,4 @@
-import { loadTasks, addTask } from "./localStorage.js";
+import { loadTasks, addTask, tasksChecked, removeTask } from "./localStorage.js";
 
 const menuButton = document.querySelector('#menu-button');
 const sideNav = document.querySelector('.Side');
@@ -11,6 +11,7 @@ const taskTitle = document.querySelector('#title');
 const dueDate = document.querySelector('#due-date');
 const priority = document.querySelector('#priority');
 const folder = document.querySelector('#folder');
+const tasks = document.querySelectorAll('.task');
 
 
 // Add the event listener to the menu button
@@ -57,11 +58,22 @@ formContainer.addEventListener('submit', (e) => {
     </div>
     `;
     formContainer.classList.toggle('active');
-
+    const task= document.querySelectorAll('.task');
+    task.forEach(task => {
+        task.addEventListener('change', () => {
+            task.classList.toggle('checked');
+            setTimeout(() => {
+                task.remove();
+            }, 500);
+            removeTask(task);
+        });
+    }
+    );
     addTask(listTask);
     }
     form.reset();
 });
+
 
 
 loadTasks(taskContainer);

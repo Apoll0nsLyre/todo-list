@@ -10,25 +10,17 @@ function addTask(listTask) {
     saveTasksStorage();
 }
 
-const task= document.querySelectorAll('.task');
-task.forEach(task => {
-    if ("checked" in task.classList) {
-        tasksChecked.push(task);
-    }
-    console.log(tasksChecked);
+function removeTask(task) {
+    const taskTitle = task.querySelector('.title').textContent;
+    tasks = tasks.filter((task) => task.title !== taskTitle);
     saveTasksStorage();
 }
-);
 
 function loadTasks(taskContainer) {
+    
     const savedTasks = localStorage.getItem('tasks');
     if (savedTasks) {
         tasks = JSON.parse(savedTasks);
-        for (const task of tasksChecked) {
-            if (task in tasks) {
-                tasks= tasks.filter(task => task !== task);
-            }
-        }
         console.log(tasks);
     }
     for (const task of tasks) {
@@ -50,24 +42,20 @@ function loadTasks(taskContainer) {
             </div>
         </div>
         `;
-    // Add the event listener to the checkbox
-    // make a delay when the task is checked to get smooth animation
-
-    const tasks = document.querySelectorAll('.task');
-    tasks.forEach(task => {
-    task.querySelector('#checked').addEventListener('change', () => {
-        task.classList.toggle('checked');
-        setTimeout(() => {
-            task.remove();
-        }, 500);
-        });
-    });
-    tasksChecked.forEach(task => {
-        task.remove();
-    });
-    saveTasksStorage();
-
+        
     }
+    const task= document.querySelectorAll('.task');
+    task.forEach(task => {
+        task.addEventListener('change', () => {
+            task.classList.toggle('checked');
+            setTimeout(() => {
+                task.remove();
+            }, 500);
+            removeTask(task);
+        });
+    }
+    );
+    saveTasksStorage();
 };
 
-export { saveTasksStorage, loadTasks, tasks, addTask};
+export { saveTasksStorage, loadTasks, tasks, addTask, tasksChecked, removeTask};
