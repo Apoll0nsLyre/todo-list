@@ -13,6 +13,7 @@ const priority = document.querySelector('#priority');
 const folder = document.querySelector('#folder');
 const tasks = document.querySelectorAll('.task');
 
+// 
 
 // Add the event listener to the menu button
 menuButton.addEventListener('click', () => {

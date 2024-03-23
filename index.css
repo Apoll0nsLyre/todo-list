@@ -3,13 +3,13 @@ body{
     padding: 0;
 }
 .Top{
-    background-color: #1b2f4d;
+    background-color: rgb(85, 85, 85);
     height: 70px;
 }
 
 .Title{
     font-size: 50px;
-    color: white;
+    color: black;
     text-align: center;
     padding: 20px;
 }
@@ -19,8 +19,8 @@ body{
 }
 
 .Side{
-    background-color: #214a4d;
-    color: white;
+    background-color: rgb(70, 70, 70);
+    color: black;
 }
 
 .Side div{
@@ -41,6 +41,10 @@ body{
 .Folder-add{
     color: white;
 }
+.Content{
+    background-color: rgb(255, 255, 255);
+    box-shadow: inset rgb(0,0 ,0, 0.75) 0px 0px 8px;
+}
 .add{
     transition: all 0.5s;
 }
@@ -53,6 +57,8 @@ body{
     transition: all 0.5s;
     width: 100%;
     height: 100%;
+    font-size:large;
+    font-weight: 100;
 }
 .modal{
     width: 100%;
@@ -110,4 +116,13 @@ input[type=submit]{
     max-width: 70%;
     text-wrap: wrap;
     word-break: break-word;
+}
+input[type=submit]{
+    background-color: #2b9bc9;
+    transition: all 0.5s;
+}
+input[type=submit]:hover{
+    background-color: #16536b;
+    transition: all 0.5s;
+
 }

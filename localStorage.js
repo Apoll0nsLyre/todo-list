@@ -33,11 +33,11 @@ function loadTasks(taskContainer) {
 
             <div class="details w-full text-wrap">
                 <div class="top flex">
-                    <div class="title text-xl font-medium ">${task.title}</div>
+                    <div class="title text-xl font-normal ">${task.title}</div>
                 </div>
                 <div class="w-full flex justify-between">
-                    <div class="due-date flex">${task.dueDate}</div>
-                    <div class="priority right-0 flex ">${task.priority}</div>
+                    <div class="due-date flex font-normal">${task.dueDate}</div>
+                    <div class="priority right-0 flex font-normal">${task.priority}</div>
                 </div>
             </div>
         </div>
