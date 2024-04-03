@@ -24,39 +24,51 @@
         </div>
         <div class="Main flex">
             <div class="Side p-0 sm:p-5 flex-col text-nowrap">
-                <div id="tasks" class="tasks active flex">
+                <div id="tasks" class="side-button tasks active flex">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 ">
                     <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
                   </svg>
                   <p class="pl-2">Tasks</p></div>
-                <div id="folders" class="folders flex">
+                <div id="folders" class="side-button folders flex">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 0 1 4.5 9.75h15A2.25 2.25 0 0 1 21.75 12v.75m-8.69-6.44-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" />
                   </svg>
                   <p class="pl-2">Folders</p></div>
-                <div id="add-folder" class="add-folder flex">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 10.5v6m3-3H9m4.06-7.19-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" />
-                  </svg>
-                  <p class="pl-2">Add a Folder</p></div>
+                
                 <overlay class="overlay absolute w-screen h-screen sm:hidden sm:-z-10"></overlay>
             </div>
 
             <div class="Content z-0 flex flex-col w-full">
-                <div class="task-container w-full">
+
+                <div class="buttons-container flex">
+                    <div class="add-task modal-trigger flex cursor-pointer font-medium h-fit w-fit m-4 p-1.5 pr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6 ">
+                            <path d="M10.75 4.75a.75.75 0 0 0-1.5 0v4.5h-4.5a.75.75 0 0 0 0 1.5h4.5v4.5a.75.75 0 0 0 1.5 0v-4.5h4.5a.75.75 0 0 0 0-1.5h-4.5v-4.5Z" />
+                        </svg>
+                        <p class="flex">Add a task</p>
+                    </div>
+                
+                    <div class="add-folder modal-trigger flex cursor-pointer font-medium h-fit w-fit m-4 p-1.5 pr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-1">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 10.5v6m3-3H9m4.06-7.19-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" />
+                          </svg>
+                            
+                        <p class="flex">Add a folder</p>
+                    </div>
+                </div>
+
+                <div class="folder-container w-full">
 
                 </div>
-                <div class="add modal-trigger flex cursor-pointer font-medium h-fit w-fit m-4 p-1.5 pr-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6 ">
-                        <path d="M10.75 4.75a.75.75 0 0 0-1.5 0v4.5h-4.5a.75.75 0 0 0 0 1.5h4.5v4.5a.75.75 0 0 0 1.5 0v-4.5h4.5a.75.75 0 0 0 0-1.5h-4.5v-4.5Z" />
-                      </svg>
-                    <p class="flex">Add a task</p>
+                <div class="task-container active w-full">
+
                 </div>
+                
             </div>
             
             <div id="form-container" class="form-container fixed top-0 left-0 invisible opacity-0">
                 <overlay class="overlay-modal modal-trigger fixed"></overlay>
-                <div class="modal lg:w-1/3 absolute pt-10 rounded-lg focus:outline-none w-2/3">
+                <div class="modal-task lg:w-1/3 absolute pt-10 rounded-lg focus:outline-none w-2/3">
 
                     <h1 class="absolute top-3 font-medium text-lg">New task</h1>
                     <div class="close-modal modal-trigger absolute right-3 top-3 rounded-md cursor-pointer">
@@ -100,6 +112,23 @@
                         
                     </form>
                     
+                </div>
+
+                <div class="modal-folder lg:w-1/3 absolute pt-10 rounded-lg focus:outline-none w-2/3">
+                    <h1 class="absolute top-3 font-medium text-lg">New folder</h1>
+                    <div class="close-modal modal-trigger absolute right-3 top-3 rounded-md cursor-pointer">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                          </svg>
+                          
+                    </div>
+                    <form action="" class="form flex ">
+                        <div class="flex flex justify-left">
+                            
+                            <input type="text" name="title" id="title" placeholder="Title" class="" required>
+                            <input type="submit" value="+Add" class=" w-fit h-fit absolute m-auto right-0 bottom-0 cursor-pointer">
+                        </div>
+                        
                 </div>
             </div>
         </div>

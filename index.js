@@ -1,19 +1,36 @@
 import { loadTasks, addTask, tasksChecked, removeTask } from "./localStorage.js";
 
-const menuButton = document.querySelector('#menu-button');
 const sideNav = document.querySelector('.Side');
 const taskContainer = document.querySelector('.task-container');
 const modalTriggers = document.querySelectorAll('.modal-trigger');
 const formContainer = document.querySelector('.form-container');
 const form = document.querySelector('.form');
+const modalTask = document.querySelector('.modal-task');
+const modalFolder = document.querySelector('.modal-folder');
+
+const menuButton = document.querySelector('#menu-button');
+const sideButtons = document.querySelectorAll('.side-button');
+const addFolderButton = document.querySelector('.add-folder');
+const addTaskButton = document.querySelector('.add-task');
 
 const taskTitle = document.querySelector('#title');
 const dueDate = document.querySelector('#due-date');
 const priority = document.querySelector('#priority');
 const folder = document.querySelector('#folder');
 const tasks = document.querySelectorAll('.task');
+let selectModal = 0;
 
-// 
+// Add the event listener to side buttons
+sideButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        sideButtons.forEach(button => {
+            button.classList.remove('active');
+        }
+        );
+        button.classList.add('active');
+    }
+    );
+});
 
 // Add the event listener to the menu button
 menuButton.addEventListener('click', () => {
@@ -21,13 +38,28 @@ menuButton.addEventListener('click', () => {
 }
 );
 
+// Add the event listener to the add folder button
+addFolderButton.addEventListener('click', () => {
+    selectModal = modalFolder;
+    console.log(selectModal);
+}
+);
+
+// Add the event listener to the add task button
+addTaskButton.addEventListener('click', () => {
+    selectModal = modalTask;
+    console.log(selectModal);
+}
+);
+
 // Add the event listener to the modal triggers
 modalTriggers.forEach(trigger => {
     trigger.addEventListener('click', () => {
         formContainer.classList.toggle('active');
-    })
-}
-);
+        selectModal.classList.toggle('active');
+    });
+});
+
 
 // Make function to delete task that had been checked
 
